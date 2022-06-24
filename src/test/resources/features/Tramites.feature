@@ -11,6 +11,6 @@ Feature: AutoWeb
     Then valida que se haya agregado al carrito
     Examples:
     |user| password| articulo|
-    |Ramd0m12312dsa | hola123| LAPTOP|
+    |RamdOOMm12312dsa | hola123| LAPTOP|
     |Rae1md0md12312ds | hola1234| PHONES|
     |ffsdRamd0m12312ds | hola1234| MONITORS|
