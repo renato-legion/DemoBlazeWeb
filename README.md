@@ -44,4 +44,6 @@ mvn serenity:aggregate
 ````
 click on url to see the report
 ````
+###Author: Renato Francisco Paco Huerta 
+###Linkedin: https://www.linkedin.com/in/renatopaco98/
 
