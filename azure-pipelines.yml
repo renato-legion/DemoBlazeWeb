@@ -1,0 +1,50 @@
+#Configuracion pipeline: ejercicio-challenge
+
+parameters:
+  - name: tags
+    type: string
+    displayName: Cucumber-tags a ejecutar
+    values:
+      - '@PrimerEjercicio'
+#  - name: ruta
+
+variables:
+  - name: vmImage
+    value: 'windows-latest'
+    readonly: true
+
+trigger: none
+pr: none
+
+stages:
+  - stage: Ejecutar_automatizacion_pruebas
+    displayName: Ejecutar automatizacion de pruebas
+    jobs:
+      - job: Construccion_ejecucion
+        pool:
+          vmImage: $(vmImage)
+        steps:
+          - checkout: git://renato-paco-98/ejercicio # Azure Repos Git repository in the same organization
+          - script: |
+              cd ejercicio-challenge
+              mvn clean verify "-Dcucumber.filter.tags=${{ parameters.tags }}"
+            displayName: 'Ejecucion web'
+          - script: |
+              cd gir-automation-web
+              mvn serenity:aggregate
+            condition: always()
+            displayName: 'Generar reporte-serenity'
+          - task: PublishPipelineArtifact@1
+            condition: always()
+            inputs:
+              targetPath: 'D:/a/1/s/ejercicio/target/site/serenity/'
+              artifactName: 'ReporteSerenity'
+              artifactType: 'pipeline'
+            displayName: 'Publicar reporte'
+          - task: PublishTestResults@2
+            condition: always()
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/TEST-*.xml'
+              publishRunAttachments: true
+            displayName: 'Publicar resultados de pruebas'

@@ -24,7 +24,6 @@ public class ValidaProductoEnCarrito implements Task {
         nombreProductoTask=getProductoWeb.getNombreProducto();
         PrecioProductoTask=getProductoWeb.getPrecioProducto();
 
-
         theActorInTheSpotlight().should(
                 seeThat(ArticuloQuestions.carritoPrecioArticulo(), equalTo(PrecioProductoTask))
         );
@@ -36,6 +35,4 @@ public class ValidaProductoEnCarrito implements Task {
         );
 
     }
-
-
 }
