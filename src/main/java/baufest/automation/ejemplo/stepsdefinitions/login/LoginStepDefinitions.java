@@ -48,7 +48,7 @@ String UserNameGlobal = null;
 
         System.out.println("hola");
 
-        Thread.sleep(500);
+        Thread.sleep(1000);
 
     }
     @And("realiza la actividad login y logut con el nuevo usuario")

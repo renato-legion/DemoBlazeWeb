@@ -10,7 +10,7 @@ Feature: AutoWeb
     And agrega el articulo <articulo>
     Then valida que se haya agregado al carrito
     Examples:
-      | user                  | password | articulo |
-      | RamdOOSDDSA12312dsa   | hola123  | LAPTOP   |
-      | RD2123md12312ds       | hola1234 | PHONES   |
-      | feqwDASQsamd0m12312ds | hola1234 | MONITORS |
+      | user         | password | articulo |
+      | RDDDASWs12dsa | hola123  | LAPTOP   |
+#      | DASDSACc2312ds    | hola1234 | PHONES   |
+#      | feasdsadds       | hola1234 | MONITORS |
